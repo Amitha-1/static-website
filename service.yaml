@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: static-website-service
+spec:
+  selector:
+    app: static-website
+  ports:
+  - protocol: TCP
+    port: 80  # Expose the service on port 80
+    targetPort: 80  # Forward requests to port 80 on the container
+  type: LoadBalancer  # Type LoadBalancer will expose the service externally if you're on a cloud provider (e.g., GKE, AWS EKS)
